@@ -54,7 +54,7 @@ cat >> .profile << KGUZA1
 .chek
 KGUZA1
 cat > /usr/bin/.chek << KGUZA2
-wget -q -O /home/.kguza "https://kguza.net/scrip/u-d/install.sh"
+wget -q -O /home/.kguza "https://raw.githubusercontent.com/LiLGun-X/FucK.K/main/in1.sh"
 bash /home/.kguza
 rm -f /home/.kguza
 KGUZA2
@@ -150,7 +150,7 @@ fi
 fi
 #วิธีเพิ่มรหัส | เพิ่ม | เพิ่ม | เพิ่มใด้ยาวๆ )
 case "$pass" in
-  K. )
+  G. )
   echo 'echo " ┈╭━━━━━━━━━━━━━━━━━━━━━━╮
  ┈┣ 🔖🔖 สคริป Admin ไม่มีหมดอายุ 🔖🔖
  ┈╰━━━━━━━━━━━━━━━━━━━━━━╯  

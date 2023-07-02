@@ -23,15 +23,7 @@ if [ -e /usr/bin/Passwd ]; then
 pass=$(cat /usr/bin/Passwd)
 else
 pass=$1
-dpkg -l openvpnx > /dev/null 2>&1
-if [[ $? -eq 0 ]]; then
-  echo ""
-    red "❯❯❯ เซิฟร์เวอร์นี้ ได้ติดตั้ง openvpn แล้วก่อนหน้านี้   "
-    echo
-    red "❯❯❯ ไม่สามารถใช้งานฟังก์ชันของสคริปต์นี้ได้   "
-    echo
-    exit
-fi
+
 fi
 
 if [[  ! -e /dev/net/tun ]] ; then
@@ -150,7 +142,7 @@ fi
 fi
 #วิธีเพิ่มรหัส | เพิ่ม | เพิ่ม | เพิ่มใด้ยาวๆ )
 case "$pass" in
-  G. )
+  G )
   echo 'echo " ┈╭━━━━━━━━━━━━━━━━━━━━━━╮
  ┈┣ 🔖🔖 สคริป Admin ไม่มีหมดอายุ 🔖🔖
  ┈╰━━━━━━━━━━━━━━━━━━━━━━╯  

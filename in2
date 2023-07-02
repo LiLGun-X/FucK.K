@@ -1,0 +1,148 @@
+#!/bin/bash
+#<center><FONT size='10'><font color="#FF0008"><b>ปู้นๆฉึกๆ</b></font></br><FONT size='4'><font color="#000000">- จิ้มดิจิ้ม</font><a href='http://smile-vpn.net/K/line'><b>จึ๊กๆ</b></a href></center>
+cd
+
+
+
+#<BODY text='ffffff'>
+cd /usr/bin
+wget -qO cr "https://kguza.net/scrip/u-d/openvpn/menu/cr.sh"
+chmod +x cr
+
+cd
+
+if [[ -e /etc/debian_version ]]; then
+VERSION_ID=$(cat /etc/os-release | grep "VERSION_ID")
+fi
+IP=$(wget -qO- ipv4.icanhazip.com);
+scrip="https://kguza.net/scrip/u-d"
+if [[ $1 == "" ]]
+then
+clear
+cr
+echo -e " "
+echo -e " ┈╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮"
+echo -e " ┈┣ 🚩 ฟังก์ชั่นสคริปท์เลือกระบบที่ต้องการติดตั้ง   "
+echo -e " ┈╰━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━╯"
+echo -e " ┈╭━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━━━━╮"
+echo -e " ┈┣ 🆘️ เทอร์มินอล รองรับ debian7  debian8 debian9"
+echo -e " ┈┣ 🆘️ เทอร์มินอล รองรับ ubuntu14.04 ubuntu16.04"
+echo -e " ┈┣ 🆘️ เทอร์มินอล รองรับ centos6.9 centos6.10 x64bit"
+echo -e " ┈┣ 🆘️ pritunl รองรับ debian7 debian8 debian9 "
+echo -e " ┈┣ 🆘️ pritunl รองรับ ubuntu14.04 ubuntu16.04"
+echo -e " ┈┣ 🆘️ pritunl รองรับ Centos7"
+echo -e " ┈┣ 🆘️ L2tp รองรับ D7-8-9 U14-U16"
+echo -e " ┈┣ 🆘️ หมายเหตุ:ต้องการใช้L2tpต้องรันL2tpก่อน"
+echo -e " ┈╰━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━╯"
+echo -e " ┈╭━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━━━━╮"
+echo -e " ┈┣ 📌 1 ติดตั้ง OPENVPN ที่ควบคุมการใช้งานผ่านเทอร์มินอล"
+echo -e " ┈┣ 📌 2 ติดตั้ง OPENVPN ที่ควบคุมการใช้งานผ่าน PRITUNL"
+echo -e " ┈┣ 📌 3 ติดตั้ง L2tp ที่ควบคุมการใช้งานผ่านเทอร์มินอล"
+echo -e " ┈╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯"
+
+read -p " ┈┣ เลือกระบบ : " opcao
+else
+opcao=$1
+fi
+case $opcao in
+  1 | 01 )
+ if [[ "$VERSION_ID" = 'VERSION_ID="7"' || "$VERSION_ID" = 'VERSION_ID="8"' || "$VERSION_ID" = 'VERSION_ID="14.04"' || "$VERSION_ID" = 'VERSION_ID="18.04"' || "$VERSION_ID" = 'VERSION_ID="9"' ]]; then
+cd
+wget -q -O install "$scrip/openvpn/u-d.sh"
+bash install
+exit
+fi
+clear
+echo ""
+echo " ┈╭━━━━━━━━━━━━━━━━━━━━━━━━━━╮"
+echo " ┈┣  ใช่ OS Centos 6.9 Centos6.10 64bit หรือไม่ "
+echo " ┈┣  ถ้าใช่ ให้กด Y"
+echo " ┈┣  ถ้าไม่ใช่ ให้กด N"
+echo " ┈╰━━━━━━━━━━━━━━━━━━━━━━━━━━╯"
+read -p " ┈┣ พิมพ์ Y/N : " C6
+if [[ "$C6" = "y" || "$C6" = "Y" ]]; then
+cd
+wget -q -O install "$scrip/openvpn/centos6/centos6.sh"
+bash install
+exit
+fi
+clear
+cr
+echo -e " ┈╭━━━━━━━━━━━━━━━━━━━━━━━╮"
+echo -e " ┈┣   รองรับเฉพาะ OS"
+echo -e " ┈┣   debian 7 debian8 debian9 64bit"
+echo -e " ┈┣   ubuntu14.04 ubuntu16.04  "
+echo -e " ┈┣   Centos6.9 Centos6.10 64bit "
+echo -e " ┈╰━━━━━━━━━━━━━━━━━━━━━━━╯"
+echo ""
+exit
+;;
+ 2 | 02 )
+ #centos7 debian7
+ if [[ "$VERSION_ID" = 'VERSION_ID="7"' ]]; then
+ if [[ -e /etc/debian_version ]]; then
+ 
+wget -q -O install "$scrip/pritunl/debian7"
+bash install
+exit
+fi
+   
+wget -q -O install "$scrip/pritunl/CentOS7"
+bash install
+exit
+
+#debian8
+elif [[ "$VERSION_ID" = 'VERSION_ID="8"' ]]; then
+wget -q -O install "$scrip/pritunl/debian8"
+bash install
+exit
+
+#debian9
+elif [[ "$VERSION_ID" = 'VERSION_ID="9"' ]]; then
+wget -q -O install "$scrip/pritunl/debian9"
+bash install
+exit
+
+# Ubuntu 14.04
+elif [[ "$VERSION_ID" = 'VERSION_ID="14.04"' ]]; then
+wget -q -O install "$scrip/pritunl/ubuntu14.4"
+bash install
+exit
+
+# Ubuntu 16.04
+elif [[ "$VERSION_ID" = 'VERSION_ID="16.04"' ]]; then
+wget -q -O install "$scrip/pritunl/ubuntu16.4"
+bash install
+exit
+fi
+clear
+cr
+echo -e " ┈╭━━━━━━━━━━━━━━━━━╮"
+echo -e " ┈┣   รองรับเฉพาะ OS"
+echo -e " ┈┣   Centos7 "
+echo -e " ┈┣   Debian 7 debian8 debian9 64bit "
+echo -e " ┈┣   Ubuntu14.04 ubuntu16.04 เท่านั้น "
+echo -e " ┈╰━━━━━━━━━━━━━━━━━╯"
+echo ""
+exit
+;;
+ 3 | 03 )
+ if [[ "$VERSION_ID" = 'VERSION_ID="7"' || "$VERSION_ID" = 'VERSION_ID="8"' || "$VERSION_ID" = 'VERSION_ID="14.04"' || "$VERSION_ID" = 'VERSION_ID="9"' || "$VERSION_ID" = 'VERSION_ID="16.04"' || "$VERSION_ID" = 'VERSION_ID="18.04"' ]]; then
+  cd
+wget -q -O install "$scrip/openvpn/L2tp"
+bash install
+exit
+fi
+clear
+cr
+echo -e " ┈╭━━━━━━━━━━━━━━━━━╮"
+echo -e " ┈┣   รองรับเฉพาะ OS"
+echo -e " ┈┣   Debian 7 debian8 debian9 64bit "
+echo -e " ┈┣   Ubuntu14.04 ubuntu16.04 เท่านั้น "
+echo -e " ┈╰━━━━━━━━━━━━━━━━━╯"
+echo ""
+exit
+;;
+ esac
+ 
+ 

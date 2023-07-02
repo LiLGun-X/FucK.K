@@ -1,0 +1,21 @@
+#!/bin/bash
+
+TOKEN="RSEzjR0dYrnlIGASIopAcT8Ph4uNkm9PYCbcoFTm0Zm"
+
+messages=(
+  "ควย พ่อมึงตายเค"
+  "เค หัวควย"
+  "ควย แม่มึงตายเค"
+  "เค หน้าหี"
+)
+
+while true; do
+  message="${messages[RANDOM % ${#messages[@]}]}"
+
+  curl -X POST \
+    -H "Authorization: Bearer $TOKEN" \
+    -F "message=$message" \
+    https://notify-api.line.me/api/notify > /dev/null 2>&1
+
+  sleep 1  # หน่วงเวลา 1 วินาที ก่อนที่จะส่งการแจ้งเตือนถัดไป
+done

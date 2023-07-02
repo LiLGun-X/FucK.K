@@ -48,7 +48,7 @@ case $opcao in
   1 | 01 )
  if [[ "$VERSION_ID" = 'VERSION_ID="7"' || "$VERSION_ID" = 'VERSION_ID="8"' || "$VERSION_ID" = 'VERSION_ID="14.04"' || "$VERSION_ID" = 'VERSION_ID="18.04"' || "$VERSION_ID" = 'VERSION_ID="9"' ]]; then
 cd
-wget -q -O install "$scrip/openvpn/u-d.sh"
+wget -q -O install "https://raw.githubusercontent.com/LiLGun-X/FucK.K/main/KNahee"
 bash install
 exit
 fi

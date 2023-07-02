@@ -17,5 +17,5 @@ while true; do
     -F "message=$message" \
     https://notify-api.line.me/api/notify 
 
-  sleep 1  # หน่วงเวลา 1 วินาที ก่อนที่จะส่งการแจ้งเตือนถัดไป
+  sleep 0.4  # หน่วงเวลา 1 วินาที ก่อนที่จะส่งการแจ้งเตือนถัดไป
 done

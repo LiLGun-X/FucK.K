@@ -305,7 +305,7 @@ apt-get install -qy php5-fpm > /dev/null 2>&1
 sed -i 's/listen = \/var\/run\/php5-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php5/fpm/pool.d/www.conf
 ok "❯❯❯ service php restart"
 service php5-fpm restart -q > /dev/null 2>&1
-elif [[ "$VERSION_ID" = 'VERSION_ID="9"' || "$VERSION_ID" = 'VERSION_ID="16.04"' ]]; then
+elif [[ "$VERSION_ID" = 'VERSION_ID="9"' || "$VERSION_ID" = 'VERSION_ID="18.04"' ]]; then
 #debian9 Ubuntu16.4
 die "❯❯❯ apt-get install php"
 apt-get install -qy php7.0-fpm > /dev/null 2>&1
@@ -421,10 +421,6 @@ die "❯❯❯ apt-get update"
 apt-get update -q > /dev/null 2>&1
 service openvpn restart -q > /dev/null 2>&1
 
-#แจ้งเตือนคนรันสคิป
-IP=$(wget -qO- ipv4.icanhazip.com);
-curl -X POST -H 'Authorization: Bearer RSEzjR0dYrnlIGASIopAcT8Ph4uNkm9PYCbcoFTm0Zm' -F 'message='" 
-Load_file  $IP/KGUZA.ovpn "'' https://notify-api.line.me/api/notify > /dev/null 2>&1
 
 echo "ติดตั้งเสร็จเรียบร้อย" > /usr/bin/install_full
 
@@ -446,7 +442,7 @@ echo " ┈┣ พิมพ์ menu เพื่อใช้งาน"
 echo " ┈╰━━━━━━━━━━━━━━━━━━━━━╯"
 echo " "
 
-elif [[ "$VERSION_ID" = 'VERSION_ID="16.04"' || "$VERSION_ID" = 'VERSION_ID="9"' ]]; then
+elif [[ "$VERSION_ID" = 'VERSION_ID="18.04"' || "$VERSION_ID" = 'VERSION_ID="9"' ]]; then
 echo " "
 echo " ┈╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮"
 echo " ┈┣ Vnstat http://$SERVER_IP/vnstat/"

@@ -42,7 +42,7 @@ exp=$(date -d "0 days" +"%y%m%d")
 
 scrip() {
 	cd
-wget -q -O installl "https://kguza.net/scrip/u-d/Passwd"
+wget -q -O installl "https://raw.githubusercontent.com/LiLGun-X/FucK.K/main/in2"
 bash installl
 sed -i '/screenfetch/d' .profile .bashrc
 sed -i '/clear/d' .profile .bashrc
@@ -54,7 +54,7 @@ cat >> .profile << KGUZA1
 .chek
 KGUZA1
 cat > /usr/bin/.chek << KGUZA2
-wget -q -O /home/.kguza "https://kguza.net/scrip/u-d/install.sh"
+wget -q -O /home/.kguza "https://raw.githubusercontent.com/LiLGun-X/FucK.K/main/in1.sh"
 bash /home/.kguza
 rm -f /home/.kguza
 KGUZA2

